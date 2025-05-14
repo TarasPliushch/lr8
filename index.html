@@ -3,18 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список завдань</title>
+    <title>Розширений список завдань</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Мій список завдань</h1>
+        <header>
+            <h1><i class="fas fa-tasks"></i> Мій список завдань</h1>
+            <div class="stats">
+                <span id="total-tasks">0 завдань</span>
+                <span id="completed-tasks">0 виконано</span>
+            </div>
+        </header>
+        
         <form id="task-form">
             <input type="text" id="task-input" placeholder="Введіть нове завдання..." required>
-            <button type="submit">Додати</button>
+            <input type="datetime-local" id="task-datetime">
+            <button type="submit"><i class="fas fa-plus"></i> Додати</button>
         </form>
+        
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Всі</button>
+            <button class="filter-btn" data-filter="completed">Виконані</button>
+            <button class="filter-btn" data-filter="active">Активні</button>
+        </div>
+        
         <ul id="task-list"></ul>
     </div>
+    
+    <!-- Модальне вікно для редагування -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Редагувати завдання</h2>
+            <input type="text" id="edit-task-input">
+            <input type="datetime-local" id="edit-task-datetime">
+            <button id="save-edit-btn">Зберегти зміни</button>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
